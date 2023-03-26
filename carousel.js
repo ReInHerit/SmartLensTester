@@ -1,25 +1,74 @@
 const carousel = document.querySelector('.carousel');
-const carouselItems = document.querySelectorAll('.carousel-item');
-const prevButton = document.querySelector('.carousel-button-prev');
-const nextButton = document.querySelector('.carousel-button-next');
-let currentItem = 0;
+const mediaContainers = document.querySelectorAll('.media-container');
+const prevBtns = document.querySelectorAll('.prev-btn');
+const nextBtns = document.querySelectorAll('.next-btn');
+const media = document.querySelectorAll('.media');
+const logo = document.querySelector('.logo');
+const playButtons = document.querySelectorAll('.play-button');
+const pauseButtons = document.querySelectorAll('.pause-button');
 
-function showItem(index) {
-    if (index < 0) {
-        index = carouselItems.length - 1;
-    } else if (index >= carouselItems.length) {
-        index = 0;
-    }
-    carousel.style.transform = `translateX(${-index * 100}%)`;
-    currentItem = index;
+let currentMediaIndex = 0;
+
+function pauseMedia(index) {
+    media[index].pause();
 }
 
-prevButton.addEventListener('click', () => {
-    showItem(currentItem - 1);
+playButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+        const index = event.target.dataset.mediaIndex;
+        playMedia(index);
+    });
 });
 
-nextButton.addEventListener('click', () => {
-    showItem(currentItem + 1);
+pauseButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+        const index = event.target.dataset.mediaIndex;
+        pauseMedia(index);
+    });
 });
 
-showItem(currentItem);
+function showMedia() {
+    mediaContainers.forEach((mediaContainer, index) => {
+        if (index === currentMediaIndex) {
+            mediaContainer.classList.add('active');
+            if (media[index].tagName === 'VIDEO') {
+                media[index].play();
+            }
+        } else {
+            mediaContainer.classList.remove('active');
+            if (media[index].tagName === 'VIDEO') {
+                media[index].pause();
+                media[index].currentTime = 0;
+            }
+        }
+    });
+}
+
+prevBtns.forEach(prevBtn => {
+    prevBtn.addEventListener('click', () => {
+        if (currentMediaIndex === 0) {
+            currentMediaIndex = mediaContainers.length - 1;
+        } else {
+            currentMediaIndex--;
+        }
+        showMedia();
+    });
+});
+
+nextBtns.forEach(nextBtn => {
+    nextBtn.addEventListener('click', () => {
+        if (currentMediaIndex === mediaContainers.length - 1) {
+            currentMediaIndex = 0;
+        } else {
+            currentMediaIndex++;
+        }
+        showMedia();
+    });
+});
+
+logo.addEventListener('click', () => {
+    currentMediaIndex = 0;
+    showMedia();
+});
+
+showMedia();
