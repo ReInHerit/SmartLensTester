@@ -3,7 +3,6 @@ const mediaContainers = document.querySelectorAll('.media-container');
 const prevBtns = document.querySelectorAll('.prev-btn');
 const nextBtns = document.querySelectorAll('.next-btn');
 const media = document.querySelectorAll('.media');
-const logo = document.querySelector('.logo');
 const playButtons = document.querySelectorAll('.play-button');
 const pauseButtons = document.querySelectorAll('.pause-button');
 
@@ -66,9 +65,5 @@ nextBtns.forEach(nextBtn => {
     });
 });
 
-logo.addEventListener('click', () => {
-    currentMediaIndex = 0;
-    showMedia();
-});
 
 showMedia();

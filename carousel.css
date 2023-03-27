@@ -50,6 +50,7 @@ main {
 
 .media-container.active {
   opacity: 1;
+  z-index: 10;
 }
 
 .media {
@@ -87,17 +88,14 @@ main {
   right: 0;
 }
 
-video.media {
-  z-index: 2;
-}
 
 .instructions {
   margin-top: 20px;
   text-align: left;
-  padding: 0;
+  padding: calc(20vh / 2);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   height: 100vh;
 }
