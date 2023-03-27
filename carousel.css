@@ -1,106 +1,106 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60px;
-  background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    background-color: #333;
 }
 
 .logo {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 60px);
 }
 
 .carousel {
-  display: flex;
-  position: relative;
-  width: 90%;
-  height: 90%;
-  overflow: hidden;
+    display: flex;
+    position: relative;
+    width: 90%;
+    height: 90%;
+    overflow: hidden;
 }
 
 .media-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.5s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 .media-container.active {
-  opacity: 1;
-  z-index: 10;
+    opacity: 1;
+    z-index: 10;
 }
 
 .media {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .prev-btn,
 .next-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  font-size: 36px;
-  padding: 16px;
-  border: none;
-  outline: none;
-  cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 36px;
+    padding: 16px;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 .prev-btn:hover,
 .next-btn:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .prev-btn {
-  left: 0;
+    left: 0;
 }
 
 .next-btn {
-  right: 0;
+    right: 0;
 }
 
 
 .instructions {
-  margin-top: 20px;
-  text-align: left;
-  padding: calc(20vh / 2);
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  height: 100vh;
+    margin-top: 20px;
+    text-align: left;
+    padding: calc(20vh / 2);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 100vh;
 }
 
 .qrcode {
-  display: block;
-  margin: 0 auto;
+    display: block;
+    margin: 0 auto;
 }
