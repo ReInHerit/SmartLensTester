@@ -90,3 +90,19 @@ main {
 video.media {
   z-index: 2;
 }
+
+.instructions {
+  margin-top: 20px;
+  text-align: left;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.qrcode {
+  display: block;
+  margin: 0 auto;
+}
