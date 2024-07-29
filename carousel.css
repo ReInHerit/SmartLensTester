@@ -3,9 +3,32 @@
     margin: 0;
     padding: 0;
 }
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+html {
+    width: 100%;
+    min-height: 100%;
+}
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Roboto", sans-serif;
+    color: #444444;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+
+a:hover {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Roboto", sans-serif;
+    display: inline;
 }
 
 header {
@@ -28,6 +51,12 @@ main {
     align-items: center;
     justify-content: center;
     height: calc(100vh - 60px);
+}
+
+main-two-cols {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .carousel {
@@ -98,9 +127,250 @@ main {
     align-items: flex-start;
     flex-direction: column;
     height: 100vh;
+    flex: 1;
+}
+
+
+.instructions2 {
+    margin-top: 10vh; /* Adjust the value as needed */
+    padding-top: 10vh; /* Alternatively, you can use padding */
+    text-align: left;
+    padding: 8.1vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 2vh;
 }
 
 .qrcode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    margin: 10px;
+    margin-top: 30px;
+}
+
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+    z-index: 997;
+    transition: all 0.5s;
+    height: 7%;
+    background: rgb(0, 157, 224);
+    position: fixed;
+}
+
+#header_logo {
+    max-height: 5vh;
+    margin: 1vh;
+    float: left;
+}
+
+#header_title {
+    color: #FFFFFF;
+    line-height: 1;
+    font-size: 4vh;
+}
+
+#undertitle {
+    font-size: 1.5vh;
+
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 6vh;
+    padding: 0;
+    z-index: 10;
+}
+
+.footer_container {
+    background: rgb(0, 157, 224);
+    position: relative;
+    height: 6vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#footer h3 {
+    font-size: calc(min(3vw, 30px));
+    font-weight: 400;
+    color: #fff;
+    position: relative;
+    line-height: 5%;
+    margin: 0 1vw 0 2vw;
+}
+
+#footer .social-links {
+    margin: 0 2vw;
+}
+
+#footer .social-links a {
+    font-size: 3vh;
+    display: inline-block;
+    /*background: #11303b;*/
+    color: #fff;
+    line-height: 0;
+    padding: 0.5vh 0;
+    border-radius: 50%;
+    text-align: center;
+    width: 4vh;
+    height: 4vh;
+    transition: 0.3s;
+}
+
+#footer .social-links a:hover {
+    background: #fdf003;
+    color: #11303b;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 450px) and (max-width: 768px) {
+    /*#footer h3 {*/
+    /*    font-size: 3vw;*/
+    /*}*/
+    /*#footer {*/
+    /*    height: 7vh;*/
+    /*}*/
+}
+
+@media screen and (max-width: 449px) {
+    #footer {
+        position: fixed;
+        height: 5vh;
+    }
+
+    #footer h3 {
+        font-size: 2.5vw;
+        line-height: 6vh;
+    }
+
+    #footer .social-links {
+        display: inline-block;
+        margin: 1vh;
+    }
+
+    #footer .social-links a {
+        position: relative;
+        font-size: 5vw;
+        width: 7vw;
+        padding: 1vw;
+        height: 7vw;
+    }
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Desktop Navigation */
+.nav-menu {
+    padding: 0;
+    margin: 1vh 2vw 0 auto;
+}
+
+.nav-menu > ul {
+    display: flex;
+    margin-top: inherit;
+}
+
+.nav-menu > ul > li {
+    position: relative;
+    list-style: none;
+}
+
+.nav-menu a {
     display: block;
-    margin: 0 auto;
+    position: relative;
+    padding: 0 1vw;
+    transition: 0.3s;
+    font-size: 1.5vw;
+    /*font-family: "Raleway", sans-serif;*/
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.nav-menu li:hover > a, .nav-menu .menu_active > a {
+    color: #fdf003;
+}
+
+.nav-menu .menu_passive > a {
+    color: white;
+}
+
+.nav-menu .drop-down ul {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 30px);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    padding: 10px 0;
+    background: #fff;
+    box-shadow: 0 0 30px rgba(127, 137, 161, 0.25);
+    transition: ease all 0.3s;
+}
+
+.nav-menu .drop-down:hover > ul {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+}
+
+.nav-menu .drop-down li {
+    min-width: 180px;
+    position: relative;
+}
+
+.nav-menu .drop-down ul a {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: none;
+    color: #3b434a;
+}
+
+.nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
+    color: #ffb727;
+}
+
+.nav-menu .drop-down > a:after {
+    content: "\ea99";
+    font-family: IcoFont;
+    padding-left: 5px;
+}
+
+.nav-menu .drop-down .drop-down ul {
+    top: 0;
+    left: calc(100% - 30px);
+}
+
+.nav-menu .drop-down .drop-down:hover > ul {
+    opacity: 1;
+    top: 0;
+    left: 100%;
+}
+
+.nav-menu .drop-down .drop-down > a {
+    padding-right: 35px;
+}
+
+.nav-menu .drop-down .drop-down > a:after {
+    content: "\eaa0";
+    font-family: IcoFont;
+    position: absolute;
+    right: 15px;
 }
